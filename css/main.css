@@ -163,15 +163,20 @@ color: var(--mainLinkColor);
     border-left:none;
     padding-left: 0;
   }
+}
 
-  #toggle {
-    color: var(--mainTextColor);
-    background-color: var(--mainBgColor);
-    border: 2px dashed gold;
-  }
+#toggle-modes {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 
-  #toggle:hover {
-    color: var(--mainTextColor);
-    border: 2px dashed mediumblue;
-  }
+#toggle {
+  color: var(--mainTextColor);
+  background-color: var(--mainBgColor);
+  border: 5px dashed gold;
+}
+
+#toggle:hover {
+  color: var(--mainTextColor);
+  border: 5px dashed mediumblue;
 }
