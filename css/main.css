@@ -39,7 +39,7 @@ p, span, li {
 a {
   text-decoration: none;
   color: var(--mainLinkColor);
-  font-weight: 500;
+  font-size: 500;
 }
 
 li {
