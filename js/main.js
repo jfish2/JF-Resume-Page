@@ -1,7 +1,7 @@
 const root = document.documentElement // or document.querySelector(':root');
 //initially set to light mode
-let mode = 'light';
-setInitialModeFromLocalStorage(mode); // stores initial light mode in browser's local storage to ensure that page reload doesn't reset mode
+//let mode = 'light';
+setInitialModeFromLocalStorage(); // gets mode from browser's local storage to ensure that page reload doesn't reset mode or light mode if no value
 let backgroundLight = getComputedStyle(root).getPropertyValue("--mainBgColor-light");
 let mainTextLight = getComputedStyle(root).getPropertyValue("--mainTextColor-light");
 let secondaryTextLight = getComputedStyle(root).getPropertyValue("--secondaryTextColor-light");
@@ -34,7 +34,7 @@ function toggleMode() {
       .setProperty('--secondaryTextColor', secondaryTextDark);
 
     localStorage.setItem('storedTheme', 'dark');
-    mode = 'dark';
+   // mode = 'dark';
   } else {
     document.documentElement.style
       .setProperty('--mainBgColor', backgroundLight);
@@ -48,7 +48,7 @@ function toggleMode() {
       .setProperty('--secondaryTextColor', secondaryTextLight);
 
     localStorage.setItem('storedTheme', 'light');
-    mode = 'light'
+   // mode = 'light'
   }
   //setCurrentModeInLocalStorage(mode);
 }
@@ -66,7 +66,7 @@ function toggleMode() {
     }
   }
 
-  function setInitialModeFromLocalStorage(current) {
+  function setInitialModeFromLocalStorage() {
     let storedTheme = localStorage.getItem(current);
     if (!storedTheme) {
       storedTheme = 'light';
