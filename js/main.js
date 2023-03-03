@@ -55,9 +55,9 @@ function toggleMode() {
       storedTheme = 'light';
       localStorage.setItem('storedTheme', 'light');
     }
-    else if (storedTheme === 'dark') {
+    else if (storedTheme === 'light') {
       localStorage.setItem('storedTheme', 'dark');
-    } else if (storedTheme === 'light') {
+    } else if (storedTheme === 'dark') {
       localStorage.setItem('storedTheme', 'light');
     }
   }
