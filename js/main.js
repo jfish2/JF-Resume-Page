@@ -19,6 +19,7 @@ colorModeButton.addEventListener('click',toggleMode);
 
 function toggleMode() {
   const storedMode = localStorage.getItem('storedTheme')
+  console.log(storedMode);
   console.log('toggling mode');
   if (storedMode === 'light') {
     document.documentElement.style
