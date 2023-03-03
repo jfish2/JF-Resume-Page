@@ -67,7 +67,7 @@ function toggleMode() {
   }
 
   function setInitialModeFromLocalStorage() {
-    let storedTheme = localStorage.getItem(current);
+    let storedTheme = localStorage.getItem('storedTheme');
     if (!storedTheme) {
       storedTheme = 'light';
       localStorage.setItem('storedTheme', 'light');
