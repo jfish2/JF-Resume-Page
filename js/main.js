@@ -33,6 +33,7 @@ function toggleMode() {
     document.documentElement.style
       .setProperty('--secondaryTextColor', secondaryTextDark);
 
+    localStorage.setItem('storedTheme', 'dark');
     mode = 'dark';
   } else {
     document.documentElement.style
@@ -45,9 +46,11 @@ function toggleMode() {
       .setProperty('--mainTextColor', mainTextLight);
     document.documentElement.style
       .setProperty('--secondaryTextColor', secondaryTextLight);
+
+    localStorage.setItem('storedTheme', 'light');
     mode = 'light'
   }
-  setCurrentModeInLocalStorage(mode);
+  //setCurrentModeInLocalStorage(mode);
 }
 
   function setCurrentModeInLocalStorage(mode) {
