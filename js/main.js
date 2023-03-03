@@ -1,7 +1,8 @@
 const root = document.documentElement // or document.querySelector(':root');
 //initially set to light mode
 //let mode = 'light';
-setInitialModeFromLocalStorage(); // gets mode from browser's local storage to ensure that page reload doesn't reset mode or light mode if no value
+const storedMode = setInitialModeFromLocalStorage(); // gets mode from browser's local storage to ensure that page reload doesn't reset mode or light mode if no value
+
 let backgroundLight = getComputedStyle(root).getPropertyValue("--mainBgColor-light");
 let mainTextLight = getComputedStyle(root).getPropertyValue("--mainTextColor-light");
 let secondaryTextLight = getComputedStyle(root).getPropertyValue("--secondaryTextColor-light");
@@ -13,6 +14,32 @@ let mainTextDark = getComputedStyle(root).getPropertyValue("--mainTextColor-dark
 let secondaryTextDark = getComputedStyle(root).getPropertyValue("--secondaryTextColor-dark");
 let mainLinkDark = getComputedStyle(root).getPropertyValue("--mainLinkColor-dark");
 let borderDark = getComputedStyle(root).getPropertyValue("--mainBorderColor-dark");
+
+if (storedMode === 'dark') {
+  document.documentElement.style
+    .setProperty('--mainBgColor', backgroundDark);
+  document.documentElement.style
+    .setProperty('--mainBorderColor', borderDark);
+  document.documentElement.style
+    .setProperty('--mainLinkColor', mainLinkDark);
+  document.documentElement.style
+    .setProperty('--mainTextColor', mainTextDark);
+  document.documentElement.style
+    .setProperty('--secondaryTextColor', secondaryTextDark);
+
+} else {
+  document.documentElement.style
+    .setProperty('--mainBgColor', backgroundLight);
+  document.documentElement.style
+    .setProperty('--mainBorderColor', borderLight);
+  document.documentElement.style
+    .setProperty('--mainLinkColor', mainLinkLight);
+  document.documentElement.style
+    .setProperty('--mainTextColor', mainTextLight);
+  document.documentElement.style
+    .setProperty('--secondaryTextColor', secondaryTextLight);
+
+}
 
 const colorModeButton = document.querySelector('#toggle');
 colorModeButton.addEventListener('click',toggleMode);
@@ -72,5 +99,6 @@ function toggleMode() {
       storedTheme = 'light';
       localStorage.setItem('storedTheme', 'light');
     }
+    return storedTheme;
   }
 
