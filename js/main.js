@@ -1,7 +1,6 @@
 const root = document.documentElement // or document.querySelector(':root');
 //initially set to light mode
 let mode = 'light';
-setInitialModeInLocalStorage(mode); // stores initial light mode in browser's local storage to ensure that page reload doesn't reset mode
 let backgroundLight = getComputedStyle(root).getPropertyValue("--mainBgColor-light");
 let mainTextLight = getComputedStyle(root).getPropertyValue("--mainTextColor-light");
 let secondaryTextLight = getComputedStyle(root).getPropertyValue("--secondaryTextColor-light");
@@ -18,6 +17,7 @@ const colorModeButton = document.querySelector('#toggle');
 colorModeButton.addEventListener('click',toggleMode);
 
 function toggleMode() {
+  setInitialModeFromLocalStorage(mode); // stores initial light mode in browser's local storage to ensure that page reload doesn't reset mode
   console.log('toggling mode');
   if (mode === 'light') {
     document.documentElement.style
@@ -48,21 +48,21 @@ function toggleMode() {
   setOppositeModeInLocalStorage(mode);
 }
 
-  function setOppositeModeInLocalStorage(current) {
-    let storedTheme = localStorage.getItem(current);
+  function setOppositeModeInLocalStorage(mode) {
+    let storedTheme = localStorage.getItem(mode);
     if (!storedTheme) {
       storedTheme = 'light';
       localStorage.setItem('storedTheme', 'light');
     }
     else if (storedTheme === 'dark') {
-      localStorage.setItem('storedTheme', 'dark');
-    } else if (storedTheme === 'light') {
       localStorage.setItem('storedTheme', 'light');
+    } else if (storedTheme === 'light') {
+      localStorage.setItem('storedTheme', 'dark');
     }
   }
 
-  function setInitialModeInLocalStorage() {
-    let storedTheme = localStorage.getItem('light');
+  function setInitialModeFromLocalStorage(current) {
+    let storedTheme = localStorage.getItem(current);
     if (!storedTheme) {
       storedTheme = 'light';
       localStorage.setItem('storedTheme', 'light');
