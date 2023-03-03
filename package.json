@@ -1,10 +1,10 @@
 {
-  "name": " ",
-  "version": "0.0.1",
-  "description": "",
+  "name": "Jonathan Fisher's Resume Site ",
+  "version": "1.0.0",
+  "description": "A digital version of Jonathan Fisher's Resume",
   "keywords": "",
   "license": "",
-  "author": "",
+  "author": "Jonathan Fisher",
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
